@@ -10,7 +10,7 @@
 cas:
   authn:
     rest:
-      - uri: http://localhost:3000/verify
+      - uri: https://backend-production-42b5.up.railway.app/api/cas/verify
         password-encoder:
           type: NONE
         state: ACTIVE
