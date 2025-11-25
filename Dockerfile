@@ -14,9 +14,9 @@ RUN mkdir -p ~/.gradle \
     && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties \
     && echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties \
     && chmod 750 ./gradlew \
-    && ./gradlew --version;
+    && ./gradlew --version
 
-RUN ./gradlew clean build $EXT_BUILD_COMMANDS --parallel --no-daemon -Pexecutable=false $EXT_BUILD_OPTIONS;
+RUN ./gradlew clean build $EXT_BUILD_COMMANDS --parallel --no-daemon -Pexecutable=false $EXT_BUILD_OPTIONS
 
 RUN java -Djarmode=tools -jar build/libs/cas.war extract \
     && java -XX:ArchiveClassesAtExit=./cas/cas.jsa -Dspring.context.exit=onRefresh -jar cas/cas.war
@@ -28,7 +28,7 @@ LABEL "Description"="Apereo CAS"
 
 RUN mkdir -p /etc/cas/config \
     && mkdir -p /etc/cas/services \
-    && mkdir -p /etc/cas/saml;
+    && mkdir -p /etc/cas/saml
 
 WORKDIR cas-overlay
 COPY --from=overlay /cas-overlay/cas cas/
@@ -39,7 +39,12 @@ COPY etc/cas/services/ /etc/cas/services/
 COPY etc/cas/saml/ /etc/cas/saml/
 
 EXPOSE 8080
-
 ENV PORT=8080
 
-ENTRYPOINT ["bash", "-c", "java -server -noverify -Xmx2048M -XX:SharedArchiveFile=cas/cas.jsa -jar cas/cas.war --server.port=${PORT} --server.ssl.enabled=false"]
+
+ENV SPRING_DEVTOOLS_RESTART_ENABLED=false
+ENV SPRING_DEVTOOLS_ADD_PROPERTIES=false
+
+ENV CAS_SERVER_URL="https://btlcnpm251-production.up.railway.app"
+
+ENTRYPOINT ["bash", "-c", "java -server -noverify -Xmx2048M -XX:SharedArchiveFile=cas/cas.jsa -jar cas/cas.war --server.port=${PORT} --server.ssl.enabled=false --cas.server.name=${CAS_SERVER_URL} --cas.server.prefix=${CAS_SERVER_URL}/cas"]
