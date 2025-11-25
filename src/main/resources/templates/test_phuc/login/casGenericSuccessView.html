@@ -1,0 +1,107 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <title th:text="#{screen.success.header}">Generic Success View</title>
+    <link href="../../static/css/cas.css" rel="stylesheet" th:remove="tag"/>
+</head>
+
+<body>
+<main class="container mt-3 mb-3">
+    <div layout:fragment="content" class="row">
+        <div class="w-100 m-auto mdc-card card p-4">
+            <h2 class="text-center">
+                <i class="mdi mdi-door-open fas fa-door-open" aria-hidden="true"></i>
+                <span th:utext="#{screen.success.header}">Log In Successful</span> - <span th:utext="${authentication.principal.id}">testuser</span>
+            </h2>
+
+            <div class="mdc-tab-bar" role="tablist">
+                <div class="mdc-tab-scroller">
+                    <div class="mdc-tab-scroller__scroll-area">
+                        <nav class="nav nav-tabs mdc-tab-scroller__scroll-content">
+                            <button id="principal-tab" class="mdc-tab nav-link active" role="tab" aria-selected="true" data-toggle="tab" data-target="#principal-tab-content">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">Principal</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </button>
+                            <button id="auth-tab" class="mdc-tab nav-link" role="tab" aria-selected="false" data-toggle="tab" data-target="#auth-tab-content">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">Authentication</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <section id="principal-tab-content" class="tab-pane active">
+                    <div class="w-100 mdc-data-table table-responsive mx-auto my-4">
+                        <table class="table table-striped auto-init">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Value(s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="attribute : ${authentication.principal.attributes}">
+                                    <td th:utext="${attribute.getKey()}"></td>
+                                    <td th:utext="${#strings.abbreviate(attribute.getValue(), 80)}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="auth-tab-content" class="tab-pane">
+                    <div class="w-100 mdc-data-table table-responsive mx-auto my-4">
+                        <table class="table table-striped auto-init">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Value(s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="attribute : ${authentication.attributes}">
+                                    <td th:utext="${attribute.getKey()}"></td>
+                                    <td th:utext="${#strings.abbreviate(attribute.getValue(), 80)}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <p id="view-genericsuccess-security" th:utext="#{screen.success.security}">
+                When you are finished, for security reasons, please <a href="logout">log out</a> and exit your web browser.
+            </p>
+
+            <script type="text/javascript" th:inline="javascript">
+                $(() => {
+                    if (typeof mdc === 'undefined') {
+                        $('#principal-tab').tab('show');
+                        $('button[data-toggle="tab"]').on('shown.bs.tab', event => {
+                            let target = $(event.target).data('target');
+                            $('.tab-pane').removeClass('active');
+                            $('#' + target).addClass('active');
+                        });
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</main>
+</body>
+</html>

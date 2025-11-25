@@ -1,0 +1,21 @@
+<footer th:if="${#cas.isTrue(#themes.code('cas.footer.show'))}"
+        class="py-3 d-flex justify-content-center align-items-center cas-footer"
+        id="casFooter">
+    <span id="copyright" class="me-2 d-inline-block">
+        Copyright Group 251_L02_Hai Mặt Một Lời
+    </span>
+
+
+    <span id="poweredBy" class="px-3 d-inline-block">
+        <span th:utext="#{poweredBy}">Powered by </span><a href="https://www.apereo.org/programs/software/cas">Apereo CAS</a>
+    </span>
+    <code class="version"
+          th:if="${#cas.isTrue(#themes.code('cas.footer.show-version'))}"
+          th:text="${T(org.apereo.cas.util.CasVersion).getVersion() + ' ' + T(org.apereo.cas.util.CasVersion).getDateTime()}">
+    </code>
+    <code class="host pl-2"
+          th:if="${#cas.isTrue(#themes.code('cas.footer.show-host'))}"
+          th:text="${'🖥️ ' + host}">
+    </code>
+</footer>
+

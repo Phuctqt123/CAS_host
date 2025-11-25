@@ -1,4 +1,4 @@
-# IMPORTANT NOTE<br/>******************************************************<br/>This repository is always automatically generated from the [CAS Initializr](https://github.com/apereo/cas-initializr). Do NOT submit pull requests here as the change-set will be overwritten on the next sync. To learn more, please visit the [CAS documentation](https://apereo.github.io/cas).<br/>******************************************************<br/>
+# IMPORTANT NOTE<br/>******************************************************<br/>This repository is always automatically generated from the [CAS Initializr](https://github.com/apereo/cas-initializr). Do NOT submit pull requests here as the change-set will be overwritten on the next sync. To learn more, please visit the [CAS documentation](https://apereo.github.io/cas).<br/>*************************************************************<br/>
 Apereo CAS WAR Overlay Template
 =====================================
 
@@ -15,7 +15,10 @@ To build the project, use:
 
 ```bash
 # Use --refresh-dependencies to force-update SNAPSHOT versions
-./gradlew[.bat] clean build
+./gradlew.bat clean build
+./gradlew bootRun  
+./gradlew exportConfigMetadata
+./gradlew listTemplateViews
 ```
 
 To see what commands/tasks are available to the build script, run:

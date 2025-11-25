@@ -1,3 +1,44 @@
 # Application properties that need to be
 # embedded within the web application can be included here
 
+# cas:
+#   authn:
+#     accept:
+#       enabled: true
+#       users: phuc::abc,admin::admin123
+
+cas:
+  authn:
+    rest:
+      - uri: http://localhost:3000/verify
+        password-encoder:
+          type: NONE
+        state: ACTIVE
+        method: POST
+
+  view:
+    #default-redirect-url: http://localhost:8081
+    template-prefixes:
+      - classpath:/templates/test_phuc/fragments
+      - classpath:/templates/test_phuc
+      - classpath:/templates
+
+  theme:
+    defaultThemeName: test_phuc
+
+  service-registry:
+    core:
+      init-from-json: true
+    json:
+      # Nếu thư mục services nằm ngay trong resources/config
+      location: classpath:/services
+      # Hoặc nếu bạn muốn trỏ đến thư mục cụ thể trên máy:
+      # location: file:/path/to/your/services
+
+server:
+  ssl:
+    enabled: false
+
+        
+
+

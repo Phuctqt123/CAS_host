@@ -300,8 +300,17 @@ dependencies {
      **/
     implementation "org.apereo.cas:cas-server-support-rest"
 
-
     
+    implementation "org.apereo.cas:cas-server-support-json-service-registry"
+    implementation "org.apereo.cas:cas-server-support-rest-authentication"
+    implementation "org.apereo.cas:cas-server-core-services"
+    implementation "org.apereo.cas:cas-server-core-web"
+    
+
+    implementation "org.apereo.cas:cas-server-support-javers"
+    
+
+
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 }
 

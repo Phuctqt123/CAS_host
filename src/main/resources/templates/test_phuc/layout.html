@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" th:lang="${#strings.replace(#locale.toString(), '_', '-')}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title layout:title-pattern="$LAYOUT_TITLE $CONTENT_TITLE"
+        th:text="${#strings.defaultString(#themes.code('cas.theme.name'), 'CAS - HCMUT_TUTOR')}">
+    </title>
+
+    <!--/* Core CAS CSS */-->
+    <span th:remove="tag" th:if="${#cas.isTrue(#themes.code('cas.css.core.enabled'))}">
+        <span th:replace="~{fragments/includes :: stylesheets}">
+            <a href="fragments/includes.html">Theme</a> stylesheet fragment will go here
+        </span>
+    </span>
+
+    <span th:remove="tag" th:each="file : ${#strings.setSplit(#themes.code('cas.standard.css.file'), ',')}">
+        <link rel="stylesheet" type="text/css" href="../static/css/cas.css" th:href="@{${file}}" />
+    </span>
+    <link rel="shortcut icon" th:href="@{${#strings.defaultString(#themes.code('cas.favicon.file'), '/favicon.ico')}}" />
+
+    <span th:remove="tag" th:each="name : ${#strings.setSplit(#themes.code('cas.standard.fragments.head'), ',')}">
+        <span th:replace="~{fragments/custom :: ${name}}" th:remove="tag" />
+    </span>
+
+</head>
+
+<body>
+    <script th:replace="~{fragments/scripts}"></script>
+
+    <div th:replace="~{fragments/header :: header}">
+        <a href="fragments/header.html">Header</a> fragment will go here
+    </div>
+
+    <div class="mdc-drawer-scrim"></div>
+
+<div class="fade-in mdc-drawer-app-content mdc-top-app-bar--fixed-adjust d-flex justify-content-center bgimage">
+  <main id="main-content" th:attr="class=*{mainContentClass ?: 'container-lg' + ' py-4'} ">
+    <div class="container-box">
+      <!-- Hộp bên trái -->
+      <div class="left-box">
+        <div layout:fragment="content" id="content">
+          CAS content will go here
+        </div>
+      </div>
+
+      <!-- Hộp bên phải -->
+      <div class="side-box">
+        <h2>Thông tin hệ thống</h2>
+        <p>Hệ thống xác thực tập trung (CAS)</p>
+        <p>Đảm bảo truy cập an toàn và thống nhất cho tất cả người dùng.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<style>
+  :root {
+    --accent-1: #0ea5e9;
+    --accent-2: #0f172a;
+    --shadow: 0 8px 30px rgba(15, 23, 42, 0.15);
+  }
+
+  .container-box {
+    position: absolute;
+    top: 100px;     /* khoảng cách với mép trên */
+    bottom: 30px;  /* khoảng cách với mép dưới */
+    left: 100px;   /* cách mép trái */
+    right: 100px;  /* cách mép phải */
+    display: flex;
+    align-items: stretch;
+    border-radius: 28px;
+    background: white;
+    overflow: hidden;
+  }
+  .container-box {
+    border: 2px solid #0ea5e9; /* thay #0ea5e9 bằng màu bạn muốn */
+    border-radius: 28px;
+    background: white;
+  }
+
+  .left-box {
+    padding: 0px;
+    flex: 1;
+    background: white;
+    position: relative;
+    z-index: 1;
+    /* Cho phép cuộn */
+    max-height: 100vh;      /* hoặc height: 100vh; nếu muốn full màn hình */
+    overflow-y: auto;        /* bật thanh cuộn dọc khi cần */
+  }
+
+
+  .side-box {
+    width: 500px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-top-left-radius: 180px;
+    border-bottom-left-radius: 100px;
+    position: relative;
+    z-index: 2;
+    margin-left: -60px; /* đè sang bên trái một chút */
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .side-box h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .side-box p {
+    opacity: 0.95;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  @media (max-width: 840px) {
+    .container-box {
+      flex-direction: column;
+      left: 20px;
+      right: 20px;
+      top: 40px;
+      bottom: 40px;
+    }
+
+    .side-box {
+      width: 100%;
+      height: 220px;
+      border-radius: 0;
+      margin-left: 0;
+      box-shadow: none;
+    }
+  }
+</style>
+
+
+
+
+
+
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}">
+        <a href="fragments/footer.html">Footer</a> fragment will go here
+    </div>
+
+</body>
+
+</html>

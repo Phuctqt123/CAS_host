@@ -1,0 +1,40 @@
+<header id="app-bar" class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z4 shadow-sm">
+  <nav class="mdc-top-app-bar__row navbar navbar-dark bg-dark">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <!-- Logo CAS -->
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <div class="cas-brand d-flex align-items-center">
+          <a href="javascript:void(0)" class="text-decoration-none">
+            <img id="cas-logo"
+                 class="cas-logo"
+                 th:alt="${#strings.defaultString(#themes.code('cas.theme.name'), 'CAS')}"
+                 th:src="@{${#strings.defaultString(#themes.code('cas.logo.file'), '/images/cas-logo.png')}}"
+                 style="height:55px;"/>
+          </a>
+        </div>
+      </section>
+
+      <!-- Tiêu đề lớn ở giữa -->
+      <section class="mdc-top-app-bar__section text-center flex-grow-1" style="margin-left: 20px;">
+        <h2 class="text-white fw-bold mb-0" style="font-size: 2rem; position: relative; top: -10px;">
+          Dịch vụ xác thực tập trung
+        </h2>
+      </section>
+
+      <!-- Icon tài khoản (nếu có) -->
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+        <a id="cas-user-account"
+           th:href="@{/account}"
+           th:if="${accountProfileManagementEnabled != null
+            && accountProfileManagementEnabled
+            && ticketGrantingTicketId != null}"
+           class="mdc-icon-button mdc-top-app-bar__action-item"
+           aria-label="User Account">
+          <span class="mdi mdi-account-group" aria-hidden="true"></span>
+          <span class="visually-hidden">user account</span>
+        </a>
+      </section>
+    </div>
+  </nav>
+</header>

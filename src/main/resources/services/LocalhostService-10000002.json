@@ -1,0 +1,16 @@
+{
+  "@class" : "org.apereo.cas.services.CasRegisteredService",
+  "serviceId" : "^http://(localhost|127\\.0\\.0\\.1):8083(/.*)?$",
+  "name" : "Thông tin người dùng",
+  "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
+  "id" : 10000002,
+  "evaluationOrder" : 2,
+  "accessStrategy" : {
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "enabled" : true,
+    "ssoEnabled" : true
+  },
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  }
+}
