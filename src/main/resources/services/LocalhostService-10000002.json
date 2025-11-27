@@ -8,7 +8,11 @@
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
     "enabled" : true,
-    "ssoEnabled" : true
+    "ssoEnabled" : true,
+    "requiredAttributes" : {
+      "@class" : "java.util.LinkedHashMap",
+      "role" : [ "java.util.HashSet", [ "SinhVien" ] ]
+    }
   },
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
