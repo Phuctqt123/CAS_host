@@ -4,7 +4,7 @@
   "name" : "Dịch vụ Phòng Đào Tạo, Phòng Công Tác",
   "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
   "id" : 10000002,
-  "evaluationOrder" : 2,
+  "evaluationOrder" : 3,
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
     "enabled" : true,

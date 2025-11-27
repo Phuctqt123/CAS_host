@@ -4,7 +4,7 @@
   "name" : "Dịch vụ sinh viên",
   "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
   "id" : 10000003,
-  "evaluationOrder" : 2,
+  "evaluationOrder" : 1,
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
     "enabled" : true,
