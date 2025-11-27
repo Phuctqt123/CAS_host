@@ -1,0 +1,20 @@
+{
+  "@class" : "org.apereo.cas.services.CasRegisteredService",
+  "serviceId" : "^http://(localhost|127\\.0\\.0\\.1):8083(/.*)?$",
+  "name" : "Dịch vụ Phòng Đào Tạo, Phòng Công Tác",
+  "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
+  "id" : 10000002,
+  "evaluationOrder" : 2,
+  "accessStrategy" : {
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "enabled" : true,
+    "ssoEnabled" : true,
+    "requiredAttributes" : {
+      "@class" : "java.util.LinkedHashMap",
+      "role" : [ "java.util.HashSet", [ "PDT" ] ]
+    }
+  },
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  }
+}

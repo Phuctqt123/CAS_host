@@ -1,9 +1,9 @@
 {
   "@class" : "org.apereo.cas.services.CasRegisteredService",
-  "serviceId" : "^http://(localhost|127\\.0\\.0\\.1):8083(/.*)?$",
-  "name" : "Thông tin người dùng",
+  "serviceId" : "^http://(localhost|127\\.0\\.0\\.1):8084(/.*)?$",
+  "name" : "Dịch vụ sinh viên",
   "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
-  "id" : 10000002,
+  "id" : 10000003,
   "evaluationOrder" : 2,
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
