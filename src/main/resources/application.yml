@@ -20,6 +20,7 @@ cas:
     #default-redirect-url: http://localhost:8081
     template-prefixes:
       - classpath:/templates/test_phuc/fragments
+      - classpath:/templates/test_phuc/logout
       - classpath:/templates/test_phuc
       - classpath:/templates
 
