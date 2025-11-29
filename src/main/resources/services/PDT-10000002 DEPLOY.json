@@ -3,7 +3,7 @@
   "serviceId": "^https://btlcnpm251fe-production\\.up\\.railway\\.app/pdt(/.*)?$",
   "name" : "Dịch vụ Phòng Đào Tạo, Phòng Công Tác",
   "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
-  "id" : 10000002,
+  "id" : 10000012,
   "evaluationOrder" : 12,
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",

@@ -1,9 +1,9 @@
 {
   "@class" : "org.apereo.cas.services.CasRegisteredService",
-  "serviceId" : "^http://(localhost|127\\.0\\.0\\.1):8085(/.*)?$",
+  "serviceId": "^https://btlcnpm251fe-production\\.up\\.railway\\.app/tutor(/.*)?$",
   "name" : "Dịch vụ Tutor",
   "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
-  "id" : 10000004,
+  "id" : 10000011,
   "evaluationOrder" : 11,
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",

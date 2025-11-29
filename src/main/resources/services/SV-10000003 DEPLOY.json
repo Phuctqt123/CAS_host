@@ -3,7 +3,7 @@
   "serviceId": "^https://btlcnpm251fe-production\\.up\\.railway\\.app/sv(/.*)?$",
   "name" : "Dịch vụ sinh viên",
   "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
-  "id" : 10000003,
+  "id" : 10000010,
   "evaluationOrder" : 10,
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
