@@ -1,7 +1,7 @@
 {
   "@class" : "org.apereo.cas.services.CasRegisteredService",
   "serviceId" : "^http://(localhost|127\\.0\\.0\\.1):8084(/.*)?$",
-  "name" : "Dịch vụ sinh viên",
+  "name" : "Dịch vụ sinh viên0",
   "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
   "id" : 10000003,
   "evaluationOrder" : 1,
