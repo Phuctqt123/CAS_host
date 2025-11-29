@@ -1,0 +1,20 @@
+{
+  "@class" : "org.apereo.cas.services.CasRegisteredService",
+  "serviceId": "^https://btlcnpm251fe-production\\.up\\.railway\\.app/sv(/.*)?$",
+  "name" : "Dịch vụ sinh viên",
+  "description" : "Trang sẽ tự động chuyển hướng sau khi đăng nhập",
+  "id" : 10000003,
+  "evaluationOrder" : 10,
+  "accessStrategy" : {
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "enabled" : true,
+    "ssoEnabled" : true,
+    "requiredAttributes" : {
+      "@class" : "java.util.LinkedHashMap",
+      "role" : [ "java.util.HashSet", [ "SinhVien" ] ]
+    }
+  },
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  }
+}
