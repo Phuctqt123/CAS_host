@@ -22,6 +22,16 @@
                 <p>
                     You have successfully logged out of the Central Authentication Service.
                 </p>
+                <a href="https://btlcnpm251fe-production.up.railway.app/login" style="display:inline-block; padding:10px 20px; background-color:#007bff; color:white; text-decoration:none; border-radius:5px;">
+                    Quay về trang đăng nhập
+                </a>
+
+                <script type="text/javascript">
+                    // Tự chuyển hướng sau 3 giây (3000 ms)
+                    setTimeout(function() {
+                        window.location.href = "https://btlcnpm251fe-production.up.railway.app/login";
+                    }, 3000);
+                </script>
                 <p class="banner-message" th:utext="#{screen.logout.security}">For security reasons, exit your web browser.</p>
 
                 <div th:remove="tag" th:if="${enableProceed}">
